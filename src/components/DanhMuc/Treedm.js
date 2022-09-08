@@ -5,11 +5,89 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
-
+import { Cascader } from "antd";
 
 import Modal from 'react-bootstrap/Modal';
 function Treedm(props) {
- 
+  const options = [
+    
+    {
+      value: "Thời trang nam",
+      label: "Thời Trang Nam",
+      children: [
+        {
+          value: "Áo khoác",
+          label: "Áo khoác",
+          children: [
+            {
+              value: "Áo hodie",
+              label: "Áo hodie",
+              children: [
+                {
+                  value: "c2",
+                  label: "c2"
+                },
+              {
+                label: 'áo hidoe2',
+                value: 'áo hidoe2',
+              }
+              ]
+            },
+          ],
+        },{
+
+          value: "Áo b",
+          label: "Áo b",
+          children: [
+            {
+              value: "zhonghuamen2",
+              label: "Zhong Hua Men2",
+              children: [
+                {
+                  value: "c2",
+                  label: "c2"
+                },
+              {
+                label: 'World2',
+                value: 'dabbac75-4afa-4a16-8991-fc736bce8ced2',
+              }
+              ]
+            },
+          ],
+
+
+        },{
+
+          value: "Áo c",
+          label: "Áo c",
+          children: [
+            {
+              value: "zhonghuamen2",
+              label: "Zhong Hua Men2",
+              children: [
+                {
+                  value: "c2",
+                  label: "c2"
+                },
+              {
+                label: 'World2',
+                value: 'dabbac75-4afa-4a16-8991-fc736bce8ced2',
+              }
+              ]
+            },
+          ],
+
+        }
+
+      
+      ]
+    }
+  ];
+  
+  const onChange = (value) => {
+    console.log(value);
+  };
+  
     const [expanded, setExpanded] = React.useState([]);
     const [selected, setSelected] = React.useState([]);
     
@@ -25,13 +103,13 @@ function Treedm(props) {
 
     const handleToggle = (event, nodeIds) => {
       setExpanded(nodeIds);
-      // console.log(nodeIds)
+      console.log(nodeIds)
     
     };
   
     const handleSelect = (event, nodeIds) => {
       setSelected(nodeIds);
-      // console.log( "", nodeIds)
+      console.log( "", nodeIds)
     };
 
 
@@ -67,7 +145,14 @@ function Treedm(props) {
       <Box sx={{ mb: 1 }}>
      
       </Box>
-      <TreeView
+
+
+      <Cascader
+    
+      options={options}
+      onChange={onChange}
+      />
+      {/* <TreeView
         aria-label="controlled"
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}
@@ -87,7 +172,7 @@ function Treedm(props) {
             </TreeItem>
           </TreeItem>
         </TreeItem>
-      </TreeView>
+      </TreeView> */}
     </Box>
         </Modal.Body>
         <Modal.Footer>
